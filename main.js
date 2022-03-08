@@ -1,8 +1,3 @@
-import './style.css'
-
-import * as THREE from 'three'
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
-
 const canvas = document.getElementById('scene')
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -21,7 +16,7 @@ scene.add(ambientLight)
 
 let teapot = null;
 
-const loader = new OBJLoader()
+const loader = new THREE.OBJLoader()
 loader.load(
   './models/teapot.obj',
   obj => {
