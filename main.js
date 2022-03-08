@@ -8,11 +8,11 @@ renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setSize(window.innerWidth, window.innerHeight)
 
 const pointLight = new THREE.PointLight(0xffffFF)
-pointLight.position.set(20,20,20)
+pointLight.position.set(0,20,20)
 scene.add(pointLight)
 
-const ambientLight = new THREE.AmbientLight(0xffffff)
-scene.add(ambientLight)
+const helper = new THREE.PointLightHelper(pointLight)
+scene.add(helper)
 
 let teapot = null;
 
@@ -20,6 +20,7 @@ const loader = new THREE.OBJLoader()
 loader.load(
   './models/teapot.obj',
   obj => {
+    obj.scale.set(2,2,2)
     scene.add(obj)
     teapot = obj
   },
